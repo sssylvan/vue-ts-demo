@@ -1,0 +1,10 @@
+{
+  "originUrl": "http://192.168.0.181:23380/ess-tiku-api/v2/api-docs",
+  "templatePath": "./pontTemplate",
+  "outDir": "./services",
+  "mocks": {
+    "enable": true
+  },
+  "surrounding": "javaScript",
+  "templateType": "fetch"
+}
