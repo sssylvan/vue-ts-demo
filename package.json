@@ -39,8 +39,6 @@
     "jest": "^27.0.5",
     "less": "^4.0.0",
     "less-loader": "^8.0.0",
-    "node-fetch": "^3.2.10",
-    "pont-engine": "^0.3.20",
     "prettier": "^2.4.1",
     "request-promise": "^4.2.6",
     "ts-jest": "^27.0.4",

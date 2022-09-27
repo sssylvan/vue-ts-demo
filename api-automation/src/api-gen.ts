@@ -28,10 +28,8 @@ rp('http://192.168.0.181:23380/ess-tiku-api/v2/api-docs').then(
     })
 
     const apisContent = apis.map((api) => getApiContent(api)).join('\n')
-    console.log(apisContent)
 
     const modelNames = Object.keys(data.definitions)
-    console.log(modelNames)
     const modelsContent = modelNames
       .filter((modelName) => modelName.split('«').length === 1)
       .map((modelName) =>
@@ -40,7 +38,7 @@ rp('http://192.168.0.181:23380/ess-tiku-api/v2/api-docs').then(
       .join('\n')
 
     fs.outputFile(
-      './api.ts',
+      './api/api.ts',
       "import axios from 'axios' \n" +
         apisContent +
         getBaseModel() +
@@ -53,10 +51,12 @@ rp('http://192.168.0.181:23380/ess-tiku-api/v2/api-docs').then(
 function getApiContent(api: API) {
   return `export function ${api.name}( ${getQueryParamsCode(
     api.queryParams
-  )} ${getBodyParamsCode(api.body)}):${api.responseType} {
-   return axios.${api.method}(\`${api.path}${getQueryStringCode(
-    api.queryParams
-  )}\`${api.body ? ',' + api.body.map((b) => b.name) : ''}) as  any
+  )} ${getBodyParamsCode(api.body)}):Promise<${api.responseType}> {
+   return axios.${api.method}<any,${api.responseType}>(\`${
+    api.path
+  }${getQueryStringCode(api.queryParams)}\`${
+    api.body ? ',' + api.body.map((b) => b.name) : ''
+  })
   }`
 }
 

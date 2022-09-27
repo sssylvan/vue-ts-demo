@@ -1,719 +1,1011 @@
 import axios from 'axios'
-export function baseTopicTypeAdd(req: 新增题型请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/base/topic-type/add`, req) as any
+export function baseTopicTypeAdd(req: 新增题型请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/base/topic-type/add`, req)
 }
-export function baseTopicTypeList(): ApiResponse<Array<题型列表返回对象>> {
-  return axios.get(`/ess-tiku-api/base/topic-type/list`) as any
+export function baseTopicTypeList(): Promise<
+  ApiResponse<Array<题型列表返回对象>>
+> {
+  return axios.get<any, ApiResponse<Array<题型列表返回对象>>>(
+    `/ess-tiku-api/base/topic-type/list`
+  )
 }
-export function baseTopicTypeUpdate(req: 修改题型请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/base/topic-type/update`, req) as any
+export function baseTopicTypeUpdate(
+  req: 修改题型请求对象
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/base/topic-type/update`,
+    req
+  )
 }
-export function bookDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/book/delete?id=${id}`) as any
+export function bookDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(`/ess-tiku-api/book/delete?id=${id}`)
 }
 export function bookPage(
   req: TikuBookInfoPageReq
-): ApiPageResponse<TikuBookInfoPageRsp> {
-  return axios.post(`/ess-tiku-api/book/page`, req) as any
+): Promise<ApiPageResponse<TikuBookInfoPageRsp>> {
+  return axios.post<any, ApiPageResponse<TikuBookInfoPageRsp>>(
+    `/ess-tiku-api/book/page`,
+    req
+  )
 }
 export function bookPageQuestion(
   req: TikuBookInfoReq
-): ApiPageResponse<TikuBookInfoRsp> {
-  return axios.post(`/ess-tiku-api/book/page-question`, req) as any
+): Promise<ApiPageResponse<TikuBookInfoRsp>> {
+  return axios.post<any, ApiPageResponse<TikuBookInfoRsp>>(
+    `/ess-tiku-api/book/page-question`,
+    req
+  )
 }
-export function bookSave(req: TikuBookInfoSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/book/save`, req) as any
+export function bookSave(req: TikuBookInfoSaveReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/book/save`, req)
 }
-export function bookScanDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/book/scan/delete?id=${id}`) as any
+export function bookScanDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(`/ess-tiku-api/book/scan/delete?id=${id}`)
 }
-export function bookScanSave(req: TikuBookScanningSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/book/scan/save`, req) as any
+export function bookScanSave(
+  req: TikuBookScanningSaveReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/book/scan/save`, req)
 }
-export function chapterDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/chapter/delete?id=${id}`) as any
+export function chapterDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(`/ess-tiku-api/chapter/delete?id=${id}`)
 }
 export function chapterFullTree(
   req: ChapterInfoFullReq
-): ApiResponse<Array<ChapterInfoRsp>> {
-  return axios.post(`/ess-tiku-api/chapter/full-tree`, req) as any
+): Promise<ApiResponse<Array<ChapterInfoRsp>>> {
+  return axios.post<any, ApiResponse<Array<ChapterInfoRsp>>>(
+    `/ess-tiku-api/chapter/full-tree`,
+    req
+  )
 }
-export function chapterKnowledgeDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/chapter/knowledge/delete?id=${id}`) as any
+export function chapterKnowledgeDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
+    `/ess-tiku-api/chapter/knowledge/delete?id=${id}`
+  )
 }
 export function chapterKnowledgeSave(
   req: ChapterKnowledgeSaveReq
-): ApiResponse<ChapterKnowledgeBaseRsp> {
-  return axios.post(`/ess-tiku-api/chapter/knowledge/save`, req) as any
+): Promise<ApiResponse<ChapterKnowledgeBaseRsp>> {
+  return axios.post<any, ApiResponse<ChapterKnowledgeBaseRsp>>(
+    `/ess-tiku-api/chapter/knowledge/save`,
+    req
+  )
 }
 export function chapterListQuestion(
   chapterIds: number[]
-): ApiResponse<Array<ChapterQuestionRsp>> {
-  return axios.post(`/ess-tiku-api/chapter/list-question`, chapterIds) as any
+): Promise<ApiResponse<Array<ChapterQuestionRsp>>> {
+  return axios.post<any, ApiResponse<Array<ChapterQuestionRsp>>>(
+    `/ess-tiku-api/chapter/list-question`,
+    chapterIds
+  )
 }
 export function chapterListIds(
   ids: number[]
-): ApiResponse<Array<ChapterInfoRsp>> {
-  return axios.post(`/ess-tiku-api/chapter/list/ids`, ids) as any
+): Promise<ApiResponse<Array<ChapterInfoRsp>>> {
+  return axios.post<any, ApiResponse<Array<ChapterInfoRsp>>>(
+    `/ess-tiku-api/chapter/list/ids`,
+    ids
+  )
 }
-export function chapterResetsort(req: ChapterInfoReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/chapter/resetsort`, req) as any
+export function chapterResetsort(req: ChapterInfoReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/chapter/resetsort`, req)
 }
 export function chapterSave(
   req: ChapterSaveReq
-): ApiResponse<ChapterInfoBaseRsp> {
-  return axios.post(`/ess-tiku-api/chapter/save`, req) as any
+): Promise<ApiResponse<ChapterInfoBaseRsp>> {
+  return axios.post<any, ApiResponse<ChapterInfoBaseRsp>>(
+    `/ess-tiku-api/chapter/save`,
+    req
+  )
 }
 export function chapterSyncBackendChapterQuestion(
   subjectId: number,
   versionId: string
-): ApiResponse {
-  return axios.get(
+): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
     `/ess-tiku-api/chapter/sync-backend-chapter-question?subjectId=${subjectId}&versionId=${versionId}`
-  ) as any
+  )
 }
 export function chapterTree(
   req: ChapterInfoReq
-): ApiResponse<Array<ChapterInfoRsp>> {
-  return axios.post(`/ess-tiku-api/chapter/tree`, req) as any
+): Promise<ApiResponse<Array<ChapterInfoRsp>>> {
+  return axios.post<any, ApiResponse<Array<ChapterInfoRsp>>>(
+    `/ess-tiku-api/chapter/tree`,
+    req
+  )
 }
-export function chapterVersionDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/chapter/version/delete?id=${id}`) as any
+export function chapterVersionDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
+    `/ess-tiku-api/chapter/version/delete?id=${id}`
+  )
 }
 export function chapterVersionList(
   subjectId: number
-): ApiResponse<Array<ChapterVersionRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<ChapterVersionRsp>>> {
+  return axios.get<any, ApiResponse<Array<ChapterVersionRsp>>>(
     `/ess-tiku-api/chapter/version/list?subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function chapterVersionSave(
   req: ChapterVersionReq
-): ApiResponse<ChapterVersionRsp> {
-  return axios.post(`/ess-tiku-api/chapter/version/save`, req) as any
+): Promise<ApiResponse<ChapterVersionRsp>> {
+  return axios.post<any, ApiResponse<ChapterVersionRsp>>(
+    `/ess-tiku-api/chapter/version/save`,
+    req
+  )
 }
-export function deleteData(ids: string): ApiResponse {
-  return axios.get(`/ess-tiku-api/deleteData?ids=${ids}`) as any
+export function deleteData(ids: string): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(`/ess-tiku-api/deleteData?ids=${ids}`)
 }
-export function examHighScoreImportExcel(): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/examHighScore/importExcel`) as any
+export function examHighScoreImportExcel(): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/examHighScore/importExcel`
+  )
 }
-export function examHighScorePublishKeywords(): ApiResponse<阿里云上传响应对象> {
-  return axios.post(`/ess-tiku-api/examHighScore/publishKeywords`) as any
+export function examHighScorePublishKeywords(): Promise<
+  ApiResponse<阿里云上传响应对象>
+> {
+  return axios.post<any, ApiResponse<阿里云上传响应对象>>(
+    `/ess-tiku-api/examHighScore/publishKeywords`
+  )
 }
 export function examdaNewsEsDoSearch(
   examdaNewsEsReq: ExamdaNewsEsReq
-): ApiPageResponse<Array<ExamdaNewsEsRsp>> {
-  return axios.post(
+): Promise<ApiPageResponse<Array<ExamdaNewsEsRsp>>> {
+  return axios.post<any, ApiPageResponse<Array<ExamdaNewsEsRsp>>>(
     `/ess-tiku-api/examdaNewsEs/do/search`,
     examdaNewsEsReq
-  ) as any
+  )
 }
 export function examdaNewsEsSearch(
   examdaNewsEsReq: ExamdaNewsEsReq
-): ApiPageResponse<Array<ExamdaNewsEsRsp>> {
-  return axios.post(`/ess-tiku-api/examdaNewsEs/search`, examdaNewsEsReq) as any
+): Promise<ApiPageResponse<Array<ExamdaNewsEsRsp>>> {
+  return axios.post<any, ApiPageResponse<Array<ExamdaNewsEsRsp>>>(
+    `/ess-tiku-api/examdaNewsEs/search`,
+    examdaNewsEsReq
+  )
 }
 export function frontChapterDoList(
   subjectId: number
-): ApiResponse<Array<ChapterInfoFrontRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<ChapterInfoFrontRsp>>> {
+  return axios.get<any, ApiResponse<Array<ChapterInfoFrontRsp>>>(
     `/ess-tiku-api/front/chapter/do/list?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function frontDailyDate(): ApiResponse<Array<DailyExerciseDateRsp>> {
-  return axios.get(`/ess-tiku-api/front/daily/date`) as any
+export function frontDailyDate(): Promise<
+  ApiResponse<Array<DailyExerciseDateRsp>>
+> {
+  return axios.get<any, ApiResponse<Array<DailyExerciseDateRsp>>>(
+    `/ess-tiku-api/front/daily/date`
+  )
 }
 export function frontDailyDetailed(
   date: string,
   subjectId: number
-): ApiResponse<DailyExerciseFrontRsp> {
-  return axios.get(
+): Promise<ApiResponse<DailyExerciseFrontRsp>> {
+  return axios.get<any, ApiResponse<DailyExerciseFrontRsp>>(
     `/ess-tiku-api/front/daily/detailed?date=${date}&subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function frontExtractCard(
   req: ExtractQuestionCardReq
-): ApiResponse<Array<ExtractQuestionCardRsp>> {
-  return axios.post(`/ess-tiku-api/front/extract/card`, req) as any
+): Promise<ApiResponse<Array<ExtractQuestionCardRsp>>> {
+  return axios.post<any, ApiResponse<Array<ExtractQuestionCardRsp>>>(
+    `/ess-tiku-api/front/extract/card`,
+    req
+  )
 }
 export function frontExtractDoPage(
   req: ExtractQuestionDataReq
-): ApiResponse<ExtractQuestionPageRsp> {
-  return axios.post(`/ess-tiku-api/front/extract/do/page`, req) as any
+): Promise<ApiResponse<ExtractQuestionPageRsp>> {
+  return axios.post<any, ApiResponse<ExtractQuestionPageRsp>>(
+    `/ess-tiku-api/front/extract/do/page`,
+    req
+  )
 }
 export function frontExtractDoQuestions(
   req: ExtractQuestionReq
-): ApiResponse<string> {
-  return axios.post(`/ess-tiku-api/front/extract/do/questions`, req) as any
+): Promise<ApiResponse<string>> {
+  return axios.post<any, ApiResponse<string>>(
+    `/ess-tiku-api/front/extract/do/questions`,
+    req
+  )
 }
 export function frontExtractPage(
   req: ExtractQuestionDataReq
-): ApiResponse<ExtractQuestionPageRsp> {
-  return axios.post(`/ess-tiku-api/front/extract/page`, req) as any
+): Promise<ApiResponse<ExtractQuestionPageRsp>> {
+  return axios.post<any, ApiResponse<ExtractQuestionPageRsp>>(
+    `/ess-tiku-api/front/extract/page`,
+    req
+  )
 }
 export function frontExtractQuestions(
   req: ExtractQuestionReq
-): ApiResponse<string> {
-  return axios.post(`/ess-tiku-api/front/extract/questions`, req) as any
+): Promise<ApiResponse<string>> {
+  return axios.post<any, ApiResponse<string>>(
+    `/ess-tiku-api/front/extract/questions`,
+    req
+  )
 }
 export function frontExtractRedo(
   req: ExtractRedoQuestionReq
-): ApiResponse<string> {
-  return axios.post(`/ess-tiku-api/front/extract/redo`, req) as any
+): Promise<ApiResponse<string>> {
+  return axios.post<any, ApiResponse<string>>(
+    `/ess-tiku-api/front/extract/redo`,
+    req
+  )
 }
-export function frontExtractSave(req: ExtractQuestionSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/front/extract/save`, req) as any
+export function frontExtractSave(
+  req: ExtractQuestionSaveReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/front/extract/save`, req)
 }
-export function frontExtractSubmit(req: ExtractQuestionSubmitReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/front/extract/submit`, req) as any
+export function frontExtractSubmit(
+  req: ExtractQuestionSubmitReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/front/extract/submit`, req)
 }
 export function frontFavChapterTree(
   subjectId: number
-): ApiResponse<Array<UserWrongFavChapterRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<UserWrongFavChapterRsp>>> {
+  return axios.get<any, ApiResponse<Array<UserWrongFavChapterRsp>>>(
     `/ess-tiku-api/front/fav/chapter-tree?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function frontFavInsert(questionId: number): ApiResponse {
-  return axios.get(
+export function frontFavInsert(questionId: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
     `/ess-tiku-api/front/fav/insert?questionId=${questionId}`
-  ) as any
+  )
 }
 export function frontFavQuestionType(
   subjectId: number
-): ApiResponse<Array<UserWrongFavQuestionTypeRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<UserWrongFavQuestionTypeRsp>>> {
+  return axios.get<any, ApiResponse<Array<UserWrongFavQuestionTypeRsp>>>(
     `/ess-tiku-api/front/fav/question-type?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function frontFavRemove(req: FavQuestionRemoveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/front/fav/remove`, req) as any
+export function frontFavRemove(
+  req: FavQuestionRemoveReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/front/fav/remove`, req)
 }
 export function frontHistoryPage(
   req: HistoryPageReq
-): ApiPageResponse<HistoryPageRsp> {
-  return axios.post(`/ess-tiku-api/front/history/page`, req) as any
+): Promise<ApiPageResponse<HistoryPageRsp>> {
+  return axios.post<any, ApiPageResponse<HistoryPageRsp>>(
+    `/ess-tiku-api/front/history/page`,
+    req
+  )
 }
 export function frontHistoryValidateHistoryType(
   historyTypeId: number
-): ApiResponse<string> {
-  return axios.get(
+): Promise<ApiResponse<string>> {
+  return axios.get<any, ApiResponse<string>>(
     `/ess-tiku-api/front/history/validate-history-type?historyTypeId=${historyTypeId}`
-  ) as any
+  )
 }
-export function frontNoteSave(req: UserNoteInsertReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/front/note/save`, req) as any
+export function frontNoteSave(req: UserNoteInsertReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/front/note/save`, req)
 }
 export function frontPaperDetailed(
   paperId: number
-): ApiResponse<PaperFrontDetailedRsp> {
-  return axios.post(
+): Promise<ApiResponse<PaperFrontDetailedRsp>> {
+  return axios.post<any, ApiResponse<PaperFrontDetailedRsp>>(
     `/ess-tiku-api/front/paper/detailed?paperId=${paperId}`
-  ) as any
+  )
 }
 export function frontPaperPage(
   req: PaperFrontApiReq
-): ApiPageResponse<PaperFrontApiRsp> {
-  return axios.post(`/ess-tiku-api/front/paper/page`, req) as any
+): Promise<ApiPageResponse<PaperFrontApiRsp>> {
+  return axios.post<any, ApiPageResponse<PaperFrontApiRsp>>(
+    `/ess-tiku-api/front/paper/page`,
+    req
+  )
 }
 export function frontProductBuy(
   domain: string,
   subjectId: number
-): ApiResponse<TikuProductBuyRsp> {
-  return axios.post(
+): Promise<ApiResponse<TikuProductBuyRsp>> {
+  return axios.post<any, ApiResponse<TikuProductBuyRsp>>(
     `/ess-tiku-api/front/product/buy?domain=${domain}&subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function frontWrongChapterTree(
   isReal: number,
   subjectId: number
-): ApiResponse<Array<UserWrongFavChapterRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<UserWrongFavChapterRsp>>> {
+  return axios.get<any, ApiResponse<Array<UserWrongFavChapterRsp>>>(
     `/ess-tiku-api/front/wrong/chapter-tree?isReal=${isReal}&subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function frontWrongQuestionType(
   isReal: number,
   subjectId: number
-): ApiResponse<Array<UserWrongFavQuestionTypeRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<UserWrongFavQuestionTypeRsp>>> {
+  return axios.get<any, ApiResponse<Array<UserWrongFavQuestionTypeRsp>>>(
     `/ess-tiku-api/front/wrong/question-type?isReal=${isReal}&subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function frontWrongRemove(
   subjectId: number
-): ApiResponse<UserWrongStatsRsp> {
-  return axios.get(
+): Promise<ApiResponse<UserWrongStatsRsp>> {
+  return axios.get<any, ApiResponse<UserWrongStatsRsp>>(
     `/ess-tiku-api/front/wrong/remove?subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function frontWrongStats(
   subjectId: number
-): ApiResponse<UserWrongStatsRsp> {
-  return axios.get(
+): Promise<ApiResponse<UserWrongStatsRsp>> {
+  return axios.get<any, ApiResponse<UserWrongStatsRsp>>(
     `/ess-tiku-api/front/wrong/stats?subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function knowledgeListId(
   req: IdsReq
-): ApiResponse<Array<ChapterKnowledgeInfoRsp>> {
-  return axios.post(`/ess-tiku-api/knowledge/list-id`, req) as any
+): Promise<ApiResponse<Array<ChapterKnowledgeInfoRsp>>> {
+  return axios.post<any, ApiResponse<Array<ChapterKnowledgeInfoRsp>>>(
+    `/ess-tiku-api/knowledge/list-id`,
+    req
+  )
 }
 export function knowledgeListTreeSubject(
   subjectId: number
-): ApiResponse<Array<ChapterInfoRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<ChapterInfoRsp>>> {
+  return axios.get<any, ApiResponse<Array<ChapterInfoRsp>>>(
     `/ess-tiku-api/knowledge/list-tree-subject?subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function knowledgeParentIds(
   req: IdsReq
-): ApiResponse<Array<ChapterInfoRsp>> {
-  return axios.post(`/ess-tiku-api/knowledge/parent-ids`, req) as any
+): Promise<ApiResponse<Array<ChapterInfoRsp>>> {
+  return axios.post<any, ApiResponse<Array<ChapterInfoRsp>>>(
+    `/ess-tiku-api/knowledge/parent-ids`,
+    req
+  )
 }
-export function paperAuditPaper(req: PaperAuditReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/audit-paper`, req) as any
+export function paperAuditPaper(req: PaperAuditReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/audit-paper`, req)
 }
-export function paperBatchBindChapter(req: PaperBindChapterReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/batch-bind-chapter`, req) as any
+export function paperBatchBindChapter(
+  req: PaperBindChapterReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/batch-bind-chapter`,
+    req
+  )
 }
-export function paperBatchBindProduct(req: PaperBindProductReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/batch-bind-product`, req) as any
+export function paperBatchBindProduct(
+  req: PaperBindProductReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/batch-bind-product`,
+    req
+  )
 }
-export function paperBatchUpdateSource(req: PaperSourceSiteReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/batch-update-source`, req) as any
+export function paperBatchUpdateSource(
+  req: PaperSourceSiteReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/batch-update-source`,
+    req
+  )
 }
 export function paperCancelBindChapter(
   req: PaperCancelBindChapterReq
-): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/cancel-bind-chapter`, req) as any
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/cancel-bind-chapter`,
+    req
+  )
 }
-export function paperCancelBindProduct(req: PaperListReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/cancel-bind-product`, req) as any
+export function paperCancelBindProduct(
+  req: PaperListReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/cancel-bind-product`,
+    req
+  )
 }
-export function paperCloseProof(req: PaperListReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/close-proof`, req) as any
+export function paperCloseProof(req: PaperListReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/close-proof`, req)
 }
-export function paperCopyPaste(req: PaperCopyOrPasteReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/copy-paste`, req) as any
+export function paperCopyPaste(req: PaperCopyOrPasteReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/copy-paste`, req)
 }
-export function paperDeleteRevoke(req: PaperDeleteReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/delete-revoke`, req) as any
+export function paperDeleteRevoke(req: PaperDeleteReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/delete-revoke`, req)
 }
-export function paperDetailed(paperId: number): ApiResponse<PaperDetailedRsp> {
-  return axios.get(`/ess-tiku-api/paper/detailed?paperId=${paperId}`) as any
+export function paperDetailed(
+  paperId: number
+): Promise<ApiResponse<PaperDetailedRsp>> {
+  return axios.get<any, ApiResponse<PaperDetailedRsp>>(
+    `/ess-tiku-api/paper/detailed?paperId=${paperId}`
+  )
 }
-export function paperDoNetUpdatePdf(req: NetUpdatePdfReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/do/net-update-pdf`, req) as any
+export function paperDoNetUpdatePdf(
+  req: NetUpdatePdfReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/do/net-update-pdf`,
+    req
+  )
 }
-export function paperExamDuration(subjectId: number): ApiResponse<number> {
-  return axios.get(
+export function paperExamDuration(
+  subjectId: number
+): Promise<ApiResponse<number>> {
+  return axios.get<any, ApiResponse<number>>(
     `/ess-tiku-api/paper/exam-duration?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function paperGroupVolumeSave(req: PaperGroupVolumeReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/group-volume/save`, req) as any
+export function paperGroupVolumeSave(
+  req: PaperGroupVolumeReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/paper/group-volume/save`,
+    req
+  )
 }
 export function paperGroupVolumeView(
   paperId: number
-): ApiResponse<PaperGroupVolumeRsp> {
-  return axios.get(
+): Promise<ApiResponse<PaperGroupVolumeRsp>> {
+  return axios.get<any, ApiResponse<PaperGroupVolumeRsp>>(
     `/ess-tiku-api/paper/group-volume/view?paperId=${paperId}`
-  ) as any
+  )
 }
 export function paperList(
   req: PaperInfoApiReq
-): ApiResponse<Array<PaperInfoApiRsp>> {
-  return axios.post(`/ess-tiku-api/paper/list`, req) as any
+): Promise<ApiResponse<Array<PaperInfoApiRsp>>> {
+  return axios.post<any, ApiResponse<Array<PaperInfoApiRsp>>>(
+    `/ess-tiku-api/paper/list`,
+    req
+  )
 }
 export function paperListMini(
   req: PaperInfoMiniApiReq
-): ApiResponse<Array<PaperInfoMiniApiRsp>> {
-  return axios.post(`/ess-tiku-api/paper/list-mini`, req) as any
+): Promise<ApiResponse<Array<PaperInfoMiniApiRsp>>> {
+  return axios.post<any, ApiResponse<Array<PaperInfoMiniApiRsp>>>(
+    `/ess-tiku-api/paper/list-mini`,
+    req
+  )
 }
 export function paperListPaperYears(
   req: PaperYearReq
-): ApiResponse<Array<number>> {
-  return axios.post(`/ess-tiku-api/paper/list-paper-years`, req) as any
+): Promise<ApiResponse<Array<number>>> {
+  return axios.post<any, ApiResponse<Array<number>>>(
+    `/ess-tiku-api/paper/list-paper-years`,
+    req
+  )
 }
-export function paperPage(req: PaperInfoReq): ApiPageResponse<PaperInfoRsp> {
-  return axios.post(`/ess-tiku-api/paper/page`, req) as any
+export function paperPage(
+  req: PaperInfoReq
+): Promise<ApiPageResponse<PaperInfoRsp>> {
+  return axios.post<any, ApiPageResponse<PaperInfoRsp>>(
+    `/ess-tiku-api/paper/page`,
+    req
+  )
 }
-export function paperPdfPush(req: PaperListReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/pdf/push`, req) as any
+export function paperPdfPush(req: PaperListReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/pdf/push`, req)
 }
 export function paperQuestionType(
   subjectId: number
-): ApiResponse<Array<TikuSubjectQuestionTypePaperRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<TikuSubjectQuestionTypePaperRsp>>> {
+  return axios.get<any, ApiResponse<Array<TikuSubjectQuestionTypePaperRsp>>>(
     `/ess-tiku-api/paper/question-type?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function paperResetSort(req: PaperResetSortReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/reset-sort`, req) as any
+export function paperResetSort(req: PaperResetSortReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/reset-sort`, req)
 }
-export function paperRuleDelete(req: IdsReq_1): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/rule/delete`, req) as any
+export function paperRuleDelete(req: IdsReq_1): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/rule/delete`, req)
 }
-export function paperRuleSave(req: PaperRuleSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/rule/save`, req) as any
+export function paperRuleSave(req: PaperRuleSaveReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/rule/save`, req)
 }
-export function paperRules(paperId: number): ApiResponse<Array<PaperRuleRsp>> {
-  return axios.get(`/ess-tiku-api/paper/rules?paperId=${paperId}`) as any
+export function paperRules(
+  paperId: number
+): Promise<ApiResponse<Array<PaperRuleRsp>>> {
+  return axios.get<any, ApiResponse<Array<PaperRuleRsp>>>(
+    `/ess-tiku-api/paper/rules?paperId=${paperId}`
+  )
 }
-export function paperSave(req: PaperSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/paper/save`, req) as any
+export function paperSave(req: PaperSaveReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/paper/save`, req)
 }
 export function paperSaveExamDuration(
   examDuration: number,
   subjectId: number
-): ApiResponse {
-  return axios.get(
+): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
     `/ess-tiku-api/paper/save-exam-duration?examDuration=${examDuration}&subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function paperSelectList(
   paperIds: number[]
-): ApiResponse<Array<PaperInfoApiRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<PaperInfoApiRsp>>> {
+  return axios.get<any, ApiResponse<Array<PaperInfoApiRsp>>>(
     `/ess-tiku-api/paper/select-list?paperIds=${paperIds}`
-  ) as any
+  )
 }
-export function productDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/product/delete?id=${id}`) as any
+export function productDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(`/ess-tiku-api/product/delete?id=${id}`)
 }
 export function productDetailed(
   productId: number
-): ApiResponse<TikuProductInfoDetailedRsp> {
-  return axios.get(
+): Promise<ApiResponse<TikuProductInfoDetailedRsp>> {
+  return axios.get<any, ApiResponse<TikuProductInfoDetailedRsp>>(
     `/ess-tiku-api/product/detailed?productId=${productId}`
-  ) as any
+  )
 }
 export function productGetIdBySubjectId(
   subjectId: number
-): ApiResponse<number> {
-  return axios.get(
+): Promise<ApiResponse<number>> {
+  return axios.get<any, ApiResponse<number>>(
     `/ess-tiku-api/product/get-id-by-subject-id?subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function productListMini(
   tikuProductIds: number[]
-): ApiResponse<Array<TikuProductMiniInfoRsp>> {
-  return axios.post(`/ess-tiku-api/product/list-mini`, tikuProductIds) as any
+): Promise<ApiResponse<Array<TikuProductMiniInfoRsp>>> {
+  return axios.post<any, ApiResponse<Array<TikuProductMiniInfoRsp>>>(
+    `/ess-tiku-api/product/list-mini`,
+    tikuProductIds
+  )
 }
 export function productListSingle(
   domain: string
-): ApiResponse<Array<TikuProductInfoSingleRsp>> {
-  return axios.get(`/ess-tiku-api/product/list-single?domain=${domain}`) as any
+): Promise<ApiResponse<Array<TikuProductInfoSingleRsp>>> {
+  return axios.get<any, ApiResponse<Array<TikuProductInfoSingleRsp>>>(
+    `/ess-tiku-api/product/list-single?domain=${domain}`
+  )
 }
 export function productPage(
   req: TikuProductInfoReq
-): ApiPageResponse<TikuProductInfoRsp> {
-  return axios.post(`/ess-tiku-api/product/page`, req) as any
+): Promise<ApiPageResponse<TikuProductInfoRsp>> {
+  return axios.post<any, ApiPageResponse<TikuProductInfoRsp>>(
+    `/ess-tiku-api/product/page`,
+    req
+  )
 }
-export function productRackUpAndDown(id: number, status: number): ApiResponse {
-  return axios.get(
+export function productRackUpAndDown(
+  id: number,
+  status: number
+): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
     `/ess-tiku-api/product/rack-up-and-down?id=${id}&status=${status}`
-  ) as any
+  )
 }
-export function productSave(req: TikuProductInfoSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/product/save`, req) as any
+export function productSave(req: TikuProductInfoSaveReq): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/product/save`, req)
 }
-export function productSysData(): ApiResponse {
-  return axios.get(`/ess-tiku-api/product/sys-data`) as any
+export function productSysData(): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(`/ess-tiku-api/product/sys-data`)
 }
-export function questionExamTimeConfigDel(id: number): ApiResponse<object> {
-  return axios.get(
+export function questionExamTimeConfigDel(
+  id: number
+): Promise<ApiResponse<object>> {
+  return axios.get<any, ApiResponse<object>>(
     `/ess-tiku-api/question-exam-time-config/del?id=${id}`
-  ) as any
+  )
 }
 export function questionExamTimeConfigList(
   domain: string
-): ApiResponse<Array<QuestionExamTimeConfigRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<QuestionExamTimeConfigRsp>>> {
+  return axios.get<any, ApiResponse<Array<QuestionExamTimeConfigRsp>>>(
     `/ess-tiku-api/question-exam-time-config/list?domain=${domain}`
-  ) as any
+  )
 }
 export function questionExamTimeConfigSave(
   req: QuestionExamTimeConfigSaveReq
-): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-exam-time-config/save`, req) as any
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-exam-time-config/save`,
+    req
+  )
 }
-export function questionLevyDelete(req: IdsReq): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-levy/delete`, req) as any
+export function questionLevyDelete(req: IdsReq): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-levy/delete`,
+    req
+  )
 }
-export function questionLevyGet(id: number): ApiResponse<QuestionLevyRsp> {
-  return axios.get(`/ess-tiku-api/question-levy/get?id=${id}`) as any
+export function questionLevyGet(
+  id: number
+): Promise<ApiResponse<QuestionLevyRsp>> {
+  return axios.get<any, ApiResponse<QuestionLevyRsp>>(
+    `/ess-tiku-api/question-levy/get?id=${id}`
+  )
 }
 export function questionLevyGetSubject(
   subjectId: number
-): ApiResponse<Map<string, object>> {
-  return axios.get(
+): Promise<ApiResponse<Map<string, object>>> {
+  return axios.get<any, ApiResponse<Map<string, object>>>(
     `/ess-tiku-api/question-levy/get-subject?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function questionLevyList(): ApiResponse<Array<QuestionLevyPageRsp>> {
-  return axios.get(`/ess-tiku-api/question-levy/list`) as any
+export function questionLevyList(): Promise<
+  ApiResponse<Array<QuestionLevyPageRsp>>
+> {
+  return axios.get<any, ApiResponse<Array<QuestionLevyPageRsp>>>(
+    `/ess-tiku-api/question-levy/list`
+  )
 }
 export function questionLevyListFront(
   req: QuestionLevyListReq
-): ApiResponse<Array<QuestionLevyListRsp>> {
-  return axios.post(`/ess-tiku-api/question-levy/list-front`, req) as any
+): Promise<ApiResponse<Array<QuestionLevyListRsp>>> {
+  return axios.post<any, ApiResponse<Array<QuestionLevyListRsp>>>(
+    `/ess-tiku-api/question-levy/list-front`,
+    req
+  )
 }
 export function questionLevyPage(
   questionLevyPageReq: QuestionLevyPageReq
-): ApiPageResponse<QuestionLevyPageRsp> {
-  return axios.post(
+): Promise<ApiPageResponse<QuestionLevyPageRsp>> {
+  return axios.post<any, ApiPageResponse<QuestionLevyPageRsp>>(
     `/ess-tiku-api/question-levy/page`,
     questionLevyPageReq
-  ) as any
+  )
 }
-export function questionLevySave(req: QuestionLevyReq): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-levy/save`, req) as any
+export function questionLevySave(
+  req: QuestionLevyReq
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-levy/save`,
+    req
+  )
 }
 export function questionRuleConfigDelRefuseMsg(
   msg: string
-): ApiResponse<object> {
-  return axios.get(
+): Promise<ApiResponse<object>> {
+  return axios.get<any, ApiResponse<object>>(
     `/ess-tiku-api/question-rule-config/del-refuse-msg?msg=${msg}`
-  ) as any
+  )
 }
 export function questionRuleConfigGet(
   domain: string
-): ApiResponse<QuestionRuleConfigRsp> {
-  return axios.get(
+): Promise<ApiResponse<QuestionRuleConfigRsp>> {
+  return axios.get<any, ApiResponse<QuestionRuleConfigRsp>>(
     `/ess-tiku-api/question-rule-config/get?domain=${domain}`
-  ) as any
+  )
 }
-export function questionRuleConfigGetRefuseMsg(): ApiResponse<Array<string>> {
-  return axios.get(`/ess-tiku-api/question-rule-config/get-refuse-msg`) as any
+export function questionRuleConfigGetRefuseMsg(): Promise<
+  ApiResponse<Array<string>>
+> {
+  return axios.get<any, ApiResponse<Array<string>>>(
+    `/ess-tiku-api/question-rule-config/get-refuse-msg`
+  )
 }
 export function questionRuleConfigSave(
   req: QuestionRuleConfigReq
-): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-rule-config/save`, req) as any
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-rule-config/save`,
+    req
+  )
 }
 export function questionRuleConfigSaveRefuseMsg(
   msg: string
-): ApiResponse<object> {
-  return axios.get(
+): Promise<ApiResponse<object>> {
+  return axios.get<any, ApiResponse<object>>(
     `/ess-tiku-api/question-rule-config/save-refuse-msg?msg=${msg}`
-  ) as any
+  )
 }
 export function questionTypeList(
   subjectId: number
-): ApiResponse<TikuSubjectQuestionTypeListRsp> {
-  return axios.get(
+): Promise<ApiResponse<TikuSubjectQuestionTypeListRsp>> {
+  return axios.get<any, ApiResponse<TikuSubjectQuestionTypeListRsp>>(
     `/ess-tiku-api/question-type/list?subjectId=${subjectId}`
-  ) as any
+  )
 }
 export function questionTypeSave(
   req: TikuSubjectQuestionTypeReq
-): ApiResponse<TikuSubjectQuestionTypeListRsp> {
-  return axios.post(`/ess-tiku-api/question-type/save`, req) as any
+): Promise<ApiResponse<TikuSubjectQuestionTypeListRsp>> {
+  return axios.post<any, ApiResponse<TikuSubjectQuestionTypeListRsp>>(
+    `/ess-tiku-api/question-type/save`,
+    req
+  )
 }
 export function questionUploadRecordCount(
   req: QuestionUploadRecordCountReq
-): ApiResponse<QuestionUploadRecordCountRsp> {
-  return axios.post(`/ess-tiku-api/question-upload-record/count`, req) as any
+): Promise<ApiResponse<QuestionUploadRecordCountRsp>> {
+  return axios.post<any, ApiResponse<QuestionUploadRecordCountRsp>>(
+    `/ess-tiku-api/question-upload-record/count`,
+    req
+  )
 }
-export function questionUploadRecordDeleted(req: IdsReq): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-upload-record/deleted`, req) as any
+export function questionUploadRecordDeleted(
+  req: IdsReq
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-upload-record/deleted`,
+    req
+  )
 }
 export function questionUploadRecordExist(
   req: QuestionUploadRecordMyListReq
-): ApiResponse<boolean> {
-  return axios.post(`/ess-tiku-api/question-upload-record/exist`, req) as any
+): Promise<ApiResponse<boolean>> {
+  return axios.post<any, ApiResponse<boolean>>(
+    `/ess-tiku-api/question-upload-record/exist`,
+    req
+  )
 }
 export function questionUploadRecordGet(
   id: number
-): ApiResponse<QuestionUploadRecordSimpleRsp> {
-  return axios.get(`/ess-tiku-api/question-upload-record/get?id=${id}`) as any
+): Promise<ApiResponse<QuestionUploadRecordSimpleRsp>> {
+  return axios.get<any, ApiResponse<QuestionUploadRecordSimpleRsp>>(
+    `/ess-tiku-api/question-upload-record/get?id=${id}`
+  )
 }
 export function questionUploadRecordListMy(
   req: QuestionUploadRecordMyListReq
-): ApiResponse<Array<QuestionUploadRecordMyRsp>> {
-  return axios.post(`/ess-tiku-api/question-upload-record/list-my`, req) as any
+): Promise<ApiResponse<Array<QuestionUploadRecordMyRsp>>> {
+  return axios.post<any, ApiResponse<Array<QuestionUploadRecordMyRsp>>>(
+    `/ess-tiku-api/question-upload-record/list-my`,
+    req
+  )
 }
 export function questionUploadRecordPage(
   req: QuestionUploadRecordPageReq
-): ApiPageResponse<QuestionUploadRecordPageRsp> {
-  return axios.post(`/ess-tiku-api/question-upload-record/page`, req) as any
+): Promise<ApiPageResponse<QuestionUploadRecordPageRsp>> {
+  return axios.post<any, ApiPageResponse<QuestionUploadRecordPageRsp>>(
+    `/ess-tiku-api/question-upload-record/page`,
+    req
+  )
 }
 export function questionUploadRecordSave(
   req: QuestionUploadRecordSaveReq
-): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-upload-record/save`, req) as any
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-upload-record/save`,
+    req
+  )
 }
 export function questionUploadRecordSavePay(
   req: QuestionUploadRecordPaySaveReq
-): ApiResponse<object> {
-  return axios.post(`/ess-tiku-api/question-upload-record/save-pay`, req) as any
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
+    `/ess-tiku-api/question-upload-record/save-pay`,
+    req
+  )
 }
 export function questionUploadRecordSaveRecord(
   req: QuestionUploadRecordReq
-): ApiResponse<object> {
-  return axios.post(
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
     `/ess-tiku-api/question-upload-record/save-record`,
     req
-  ) as any
+  )
 }
 export function questionUploadRecordSubscribe(
   req: QuestionAppletsSubReq
-): ApiResponse<object> {
-  return axios.post(
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
     `/ess-tiku-api/question-upload-record/subscribe`,
     req
-  ) as any
+  )
 }
 export function questionUploadRecordTopList(
   userId: number
-): ApiResponse<Array<SiteInfoMinRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<SiteInfoMinRsp>>> {
+  return axios.get<any, ApiResponse<Array<SiteInfoMinRsp>>>(
     `/ess-tiku-api/question-upload-record/top-list?userId=${userId}`
-  ) as any
+  )
 }
 export function questionBindChapter(
   req: QuestionBindReq
-): ApiResponse<QuestionChapterRsp> {
-  return axios.post(`/ess-tiku-api/question/bind-chapter`, req) as any
+): Promise<ApiResponse<QuestionChapterRsp>> {
+  return axios.post<any, ApiResponse<QuestionChapterRsp>>(
+    `/ess-tiku-api/question/bind-chapter`,
+    req
+  )
 }
 export function questionCancelBindChapter(
   req: QuestionCancelBindChapterReq
-): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/cancel-bind-chapter`, req) as any
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/cancel-bind-chapter`,
+    req
+  )
 }
-export function questionDeleteRevoke(req: QuestionDeleteReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/delete-revoke`, req) as any
+export function questionDeleteRevoke(
+  req: QuestionDeleteReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/delete-revoke`,
+    req
+  )
 }
 export function questionDetailed(
   req: QuestionDetailedReq
-): ApiResponse<QuestionDetailedRsp> {
-  return axios.post(`/ess-tiku-api/question/detailed`, req) as any
+): Promise<ApiResponse<QuestionDetailedRsp>> {
+  return axios.post<any, ApiResponse<QuestionDetailedRsp>>(
+    `/ess-tiku-api/question/detailed`,
+    req
+  )
 }
-export function questionDoNetDeleteRel(req: QuestionRelUpdReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/do/net-delete-rel`, req) as any
+export function questionDoNetDeleteRel(
+  req: QuestionRelUpdReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/do/net-delete-rel`,
+    req
+  )
 }
 export function questionDoNetProofLogSave(
   req: QuestionProofLogReq
-): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/do/net-proof-log-save`, req) as any
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/do/net-proof-log-save`,
+    req
+  )
 }
 export function questionDoNetUpdateContent(
   req: QuestionUpdateContentReq
-): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/do/net-update-content`, req) as any
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/do/net-update-content`,
+    req
+  )
 }
-export function questionDoNetUpdateRel(req: QuestionRelUpdReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/do/net-update-rel`, req) as any
+export function questionDoNetUpdateRel(
+  req: QuestionRelUpdReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/do/net-update-rel`,
+    req
+  )
 }
 export function questionGetMiniQuestionRel(
   req: GetQuestionInfoMiniApiReq
-): ApiResponse<GetQuestionInfoMiniApiRsp> {
-  return axios.post(`/ess-tiku-api/question/get-mini-question-rel`, req) as any
+): Promise<ApiResponse<GetQuestionInfoMiniApiRsp>> {
+  return axios.post<any, ApiResponse<GetQuestionInfoMiniApiRsp>>(
+    `/ess-tiku-api/question/get-mini-question-rel`,
+    req
+  )
 }
 export function questionListMiniQuestionProofLog(
   req: ListQuestionProofLogMiniApiReq
-): ApiResponse<Array<ListQuestionProofLogMiniApiRsp>> {
-  return axios.post(
+): Promise<ApiResponse<Array<ListQuestionProofLogMiniApiRsp>>> {
+  return axios.post<any, ApiResponse<Array<ListQuestionProofLogMiniApiRsp>>>(
     `/ess-tiku-api/question/list-mini-question-proof-log`,
     req
-  ) as any
+  )
 }
 export function questionPage(
   req: QuestionInfoReq
-): ApiPageResponse<QuestionInfoRsp> {
-  return axios.post(`/ess-tiku-api/question/page`, req) as any
+): Promise<ApiPageResponse<QuestionInfoRsp>> {
+  return axios.post<any, ApiPageResponse<QuestionInfoRsp>>(
+    `/ess-tiku-api/question/page`,
+    req
+  )
 }
 export function questionPreviewProofSave(
   req: QuestionProofLogReq
-): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/preview-proof-save`, req) as any
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/preview-proof-save`,
+    req
+  )
 }
 export function questionPreviewQuestion(
   req: QuestionPreviewReq
-): ApiResponse<QuestionPreviewRsp> {
-  return axios.post(`/ess-tiku-api/question/preview-question`, req) as any
+): Promise<ApiResponse<QuestionPreviewRsp>> {
+  return axios.post<any, ApiResponse<QuestionPreviewRsp>>(
+    `/ess-tiku-api/question/preview-question`,
+    req
+  )
 }
 export function questionPreviewRule(
   req: QuestionPreviewStatsReq
-): ApiResponse<QuestionPreviewStatsRsp> {
-  return axios.post(`/ess-tiku-api/question/preview-rule`, req) as any
+): Promise<ApiResponse<QuestionPreviewStatsRsp>> {
+  return axios.post<any, ApiResponse<QuestionPreviewStatsRsp>>(
+    `/ess-tiku-api/question/preview-rule`,
+    req
+  )
 }
 export function questionRepeat(
   req: QuestionRepeatReq
-): ApiPageResponse<QuestionInfoRepeatRsp> {
-  return axios.post(`/ess-tiku-api/question/repeat`, req) as any
+): Promise<ApiPageResponse<QuestionInfoRepeatRsp>> {
+  return axios.post<any, ApiPageResponse<QuestionInfoRepeatRsp>>(
+    `/ess-tiku-api/question/repeat`,
+    req
+  )
 }
-export function questionSave(req: QuestionSaveReq): ApiResponse<number> {
-  return axios.post(`/ess-tiku-api/question/save`, req) as any
+export function questionSave(
+  req: QuestionSaveReq
+): Promise<ApiResponse<number>> {
+  return axios.post<any, ApiResponse<number>>(
+    `/ess-tiku-api/question/save`,
+    req
+  )
 }
-export function questionSaveBatch(req: QuestionSaveBatchReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/save-batch`, req) as any
+export function questionSaveBatch(
+  req: QuestionSaveBatchReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/question/save-batch`, req)
 }
 export function questionStats(
   req: QuestionStatsReq
-): ApiResponse<QuestionStatsRsp> {
-  return axios.post(`/ess-tiku-api/question/stats`, req) as any
+): Promise<ApiResponse<QuestionStatsRsp>> {
+  return axios.post<any, ApiResponse<QuestionStatsRsp>>(
+    `/ess-tiku-api/question/stats`,
+    req
+  )
 }
-export function questionSysQuestion(subjectId: number): ApiResponse {
-  return axios.get(
+export function questionSysQuestion(subjectId: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
     `/ess-tiku-api/question/sys-question?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function questionUpdateQuestion(req: QuestionUpdateReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/question/update-question`, req) as any
+export function questionUpdateQuestion(
+  req: QuestionUpdateReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(
+    `/ess-tiku-api/question/update-question`,
+    req
+  )
 }
-export function reportInit(subjectId: number): ApiResponse<HistoryReportRsp> {
-  return axios.get(`/ess-tiku-api/report/init?subjectId=${subjectId}`) as any
+export function reportInit(
+  subjectId: number
+): Promise<ApiResponse<HistoryReportRsp>> {
+  return axios.get<any, ApiResponse<HistoryReportRsp>>(
+    `/ess-tiku-api/report/init?subjectId=${subjectId}`
+  )
 }
 export function saveData(
   examSiteInfoSaveReq: ExamHighScoreSaveReq
-): ApiResponse<number> {
-  return axios.post(`/ess-tiku-api/saveData`, examSiteInfoSaveReq) as any
+): Promise<ApiResponse<number>> {
+  return axios.post<any, ApiResponse<number>>(
+    `/ess-tiku-api/saveData`,
+    examSiteInfoSaveReq
+  )
 }
-export function searchSubjectRecordDoGetDayPictureCount(): ApiResponse<PictureUserRsp> {
-  return axios.get(
+export function searchSubjectRecordDoGetDayPictureCount(): Promise<
+  ApiResponse<PictureUserRsp>
+> {
+  return axios.get<any, ApiResponse<PictureUserRsp>>(
     `/ess-tiku-api/searchSubjectRecord/do/getDayPictureCount`
-  ) as any
+  )
 }
 export function searchSubjectRecordExportData(
   subjectRecordReq: SearchSubjectRecordReq
-): ApiResponse<阿里云上传响应对象> {
-  return axios.post(
+): Promise<ApiResponse<阿里云上传响应对象>> {
+  return axios.post<any, ApiResponse<阿里云上传响应对象>>(
     `/ess-tiku-api/searchSubjectRecord/exportData`,
     subjectRecordReq
-  ) as any
+  )
 }
 export function searchSubjectRecordGetYearReport(
   searchReportYearReq: SearchReportYearReq
-): ApiResponse<SearchReportYearRsp> {
-  return axios.post(
+): Promise<ApiResponse<SearchReportYearRsp>> {
+  return axios.post<any, ApiResponse<SearchReportYearRsp>>(
     `/ess-tiku-api/searchSubjectRecord/get-year-report`,
     searchReportYearReq
-  ) as any
+  )
 }
-export function searchSubjectRecordGetUserPictureCount(): ApiResponse<PictureUserRsp> {
-  return axios.get(
+export function searchSubjectRecordGetUserPictureCount(): Promise<
+  ApiResponse<PictureUserRsp>
+> {
+  return axios.get<any, ApiResponse<PictureUserRsp>>(
     `/ess-tiku-api/searchSubjectRecord/getUserPictureCount`
-  ) as any
+  )
 }
 export function searchSubjectRecordMoveDomain(
   searchMoveReq: SearchMoveReq
-): ApiResponse<object> {
-  return axios.post(
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
     `/ess-tiku-api/searchSubjectRecord/moveDomain`,
     searchMoveReq
-  ) as any
+  )
 }
 export function searchSubjectRecordSearchKeywordQuestions(
   keywordSearchReq: keywordSearchReq
-): ApiPageResponse<Array<ExamdaNewsEsRsp>> {
-  return axios.post(
+): Promise<ApiPageResponse<Array<ExamdaNewsEsRsp>>> {
+  return axios.post<any, ApiPageResponse<Array<ExamdaNewsEsRsp>>>(
     `/ess-tiku-api/searchSubjectRecord/search/keywordQuestions`,
     keywordSearchReq
-  ) as any
+  )
 }
 export function searchSubjectRecordSearchQuestions(
   content: string,
@@ -722,152 +1014,194 @@ export function searchSubjectRecordSearchQuestions(
   pageNo: number,
   pageSize: number,
   source: string
-): ApiPageResponse<Array<ExamdaNewsEsRsp>> {
-  return axios.post(
+): Promise<ApiPageResponse<Array<ExamdaNewsEsRsp>>> {
+  return axios.post<any, ApiPageResponse<Array<ExamdaNewsEsRsp>>>(
     `/ess-tiku-api/searchSubjectRecord/searchQuestions?content=${content}&domain=${domain}&imageFile=${imageFile}&pageNo=${pageNo}&pageSize=${pageSize}&source=${source}`
-  ) as any
+  )
 }
 export function searchSubjectRecordSelectGet(
   id: number
-): ApiResponse<Array<ExamdaNewsEsRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<ExamdaNewsEsRsp>>> {
+  return axios.get<any, ApiResponse<Array<ExamdaNewsEsRsp>>>(
     `/ess-tiku-api/searchSubjectRecord/select/get?id=${id}`
-  ) as any
+  )
 }
 export function searchSubjectRecordSelectKeyword(
   domain: string
-): ApiResponse<Array<SearchRecordRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<SearchRecordRsp>>> {
+  return axios.get<any, ApiResponse<Array<SearchRecordRsp>>>(
     `/ess-tiku-api/searchSubjectRecord/select/keyword?domain=${domain}`
-  ) as any
+  )
 }
 export function searchSubjectRecordSelectRecord(
   domain: string
-): ApiResponse<Array<SearchRecordRsp>> {
-  return axios.get(
+): Promise<ApiResponse<Array<SearchRecordRsp>>> {
+  return axios.get<any, ApiResponse<Array<SearchRecordRsp>>>(
     `/ess-tiku-api/searchSubjectRecord/select/record?domain=${domain}`
-  ) as any
+  )
 }
 export function searchSubjectRecordSelectDataReport(
   timePartReq: SearchTimePartReq
-): ApiResponse<Array<SearchReportRsp>> {
-  return axios.post(
+): Promise<ApiResponse<Array<SearchReportRsp>>> {
+  return axios.post<any, ApiResponse<Array<SearchReportRsp>>>(
     `/ess-tiku-api/searchSubjectRecord/selectDataReport`,
     timePartReq
-  ) as any
+  )
 }
 export function searchSubjectRecordSelectList(
   subjectRecordReq: SearchSubjectRecordReq
-): ApiPageResponse<SearchSubjectRecordRsp> {
-  return axios.post(
+): Promise<ApiPageResponse<SearchSubjectRecordRsp>> {
+  return axios.post<any, ApiPageResponse<SearchSubjectRecordRsp>>(
     `/ess-tiku-api/searchSubjectRecord/selectList`,
     subjectRecordReq
-  ) as any
+  )
 }
 export function searchSubjectRecordSelectNumReport(
   searchReportReq: SearchReportReq
-): ApiResponse<SearchReportDateRsp> {
-  return axios.post(
+): Promise<ApiResponse<SearchReportDateRsp>> {
+  return axios.post<any, ApiResponse<SearchReportDateRsp>>(
     `/ess-tiku-api/searchSubjectRecord/selectNumReport`,
     searchReportReq
-  ) as any
+  )
 }
-export function searchTimeConfigGet(): ApiResponse<SearchTimeConfigRsp> {
-  return axios.get(`/ess-tiku-api/searchTimeConfig/get`) as any
+export function searchTimeConfigGet(): Promise<
+  ApiResponse<SearchTimeConfigRsp>
+> {
+  return axios.get<any, ApiResponse<SearchTimeConfigRsp>>(
+    `/ess-tiku-api/searchTimeConfig/get`
+  )
 }
 export function searchTimeConfigUpdate(
   timeConfigReq: UpdateConfigReq
-): ApiResponse<object> {
-  return axios.post(
+): Promise<ApiResponse<object>> {
+  return axios.post<any, ApiResponse<object>>(
     `/ess-tiku-api/searchTimeConfig/update`,
     timeConfigReq
-  ) as any
+  )
 }
 export function selectData(
   examSiteInfoReq: ExamHighScoreReq
-): ApiPageResponse<ExamHighScoreRsp> {
-  return axios.post(`/ess-tiku-api/selectData`, examSiteInfoReq) as any
+): Promise<ApiPageResponse<ExamHighScoreRsp>> {
+  return axios.post<any, ApiPageResponse<ExamHighScoreRsp>>(
+    `/ess-tiku-api/selectData`,
+    examSiteInfoReq
+  )
 }
-export function selectDataById(id: number): ApiResponse<ExamHighScoreRsp> {
-  return axios.get(`/ess-tiku-api/selectDataById?id=${id}`) as any
+export function selectDataById(
+  id: number
+): Promise<ApiResponse<ExamHighScoreRsp>> {
+  return axios.get<any, ApiResponse<ExamHighScoreRsp>>(
+    `/ess-tiku-api/selectDataById?id=${id}`
+  )
 }
-export function siteinfoTree(): ApiResponse<Array<SiteInfoRsp>> {
-  return axios.get(`/ess-tiku-api/siteinfo/tree`) as any
+export function siteinfoTree(): Promise<ApiResponse<Array<SiteInfoRsp>>> {
+  return axios.get<any, ApiResponse<Array<SiteInfoRsp>>>(
+    `/ess-tiku-api/siteinfo/tree`
+  )
 }
 export function spotTimeModel(
   subjectId: number
-): ApiResponse<TikuSubjectSpotTimeRsp> {
-  return axios.get(
+): Promise<ApiResponse<TikuSubjectSpotTimeRsp>> {
+  return axios.get<any, ApiResponse<TikuSubjectSpotTimeRsp>>(
     `/ess-tiku-api/spot-time/model?subjectId=${subjectId}`
-  ) as any
+  )
 }
-export function spotTimeSave(req: TikuSubjectSpotTimeSaveReq): ApiResponse {
-  return axios.post(`/ess-tiku-api/spot-time/save`, req) as any
+export function spotTimeSave(
+  req: TikuSubjectSpotTimeSaveReq
+): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/spot-time/save`, req)
 }
-export function tikuBaseTreeSiteinfo(): ApiResponse<Array<SiteInfoBaseRsp>> {
-  return axios.get(`/ess-tiku-api/tiku-base/tree-siteinfo`) as any
+export function tikuBaseTreeSiteinfo(): Promise<
+  ApiResponse<Array<SiteInfoBaseRsp>>
+> {
+  return axios.get<any, ApiResponse<Array<SiteInfoBaseRsp>>>(
+    `/ess-tiku-api/tiku-base/tree-siteinfo`
+  )
 }
-export function zxxChapterAdd(req: 新增章节请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/chapter/add`, req) as any
+export function zxxChapterAdd(req: 新增章节请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/chapter/add`, req)
 }
-export function zxxChapterDelete(id: number): ApiResponse {
-  return axios.get(`/ess-tiku-api/zxx/chapter/delete?id=${id}`) as any
+export function zxxChapterDelete(id: number): Promise<ApiResponse> {
+  return axios.get<any, ApiResponse>(
+    `/ess-tiku-api/zxx/chapter/delete?id=${id}`
+  )
 }
-export function zxxChapterGet(id: number): ApiResponse<章节列表查询响应对象> {
-  return axios.get(`/ess-tiku-api/zxx/chapter/get?id=${id}`) as any
+export function zxxChapterGet(
+  id: number
+): Promise<ApiResponse<章节列表查询响应对象>> {
+  return axios.get<any, ApiResponse<章节列表查询响应对象>>(
+    `/ess-tiku-api/zxx/chapter/get?id=${id}`
+  )
 }
 export function zxxChapterMove(
   req: 章节移动请求对象
-): ApiResponse<Array<章节列表查询响应对象>> {
-  return axios.post(`/ess-tiku-api/zxx/chapter/move`, req) as any
+): Promise<ApiResponse<Array<章节列表查询响应对象>>> {
+  return axios.post<any, ApiResponse<Array<章节列表查询响应对象>>>(
+    `/ess-tiku-api/zxx/chapter/move`,
+    req
+  )
 }
 export function zxxChapterTree(
   req: 章节列表查询请求对象
-): ApiResponse<Array<章节列表查询响应对象>> {
-  return axios.post(`/ess-tiku-api/zxx/chapter/tree`, req) as any
+): Promise<ApiResponse<Array<章节列表查询响应对象>>> {
+  return axios.post<any, ApiResponse<Array<章节列表查询响应对象>>>(
+    `/ess-tiku-api/zxx/chapter/tree`,
+    req
+  )
 }
-export function zxxChapterUpdate(req: 更新章节请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/chapter/update`, req) as any
+export function zxxChapterUpdate(req: 更新章节请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/chapter/update`, req)
 }
 export function zxxExerciseGetTopics(
   req: 做题获取题目请求对象
-): ApiResponse<Array<做题获取试题返回对象>> {
-  return axios.post(`/ess-tiku-api/zxx/exercise/get-topics`, req) as any
+): Promise<ApiResponse<Array<做题获取试题返回对象>>> {
+  return axios.post<any, ApiResponse<Array<做题获取试题返回对象>>>(
+    `/ess-tiku-api/zxx/exercise/get-topics`,
+    req
+  )
 }
 export function zxxExerciseShowAnalysis(
   roomId: number
-): ApiResponse<Array<查看答案解析返回对象>> {
-  return axios.get(
+): Promise<ApiResponse<Array<查看答案解析返回对象>>> {
+  return axios.get<any, ApiResponse<Array<查看答案解析返回对象>>>(
     `/ess-tiku-api/zxx/exercise/show-analysis?roomId=${roomId}`
-  ) as any
+  )
 }
 export function zxxExerciseSubmitAnswer(
   req: 提交答案请求对象
-): ApiResponse<提交答案返回对象> {
-  return axios.post(`/ess-tiku-api/zxx/exercise/submit-answer`, req) as any
+): Promise<ApiResponse<提交答案返回对象>> {
+  return axios.post<any, ApiResponse<提交答案返回对象>>(
+    `/ess-tiku-api/zxx/exercise/submit-answer`,
+    req
+  )
 }
-export function zxxTopicAdd(req: 新增试题请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/topic/add`, req) as any
+export function zxxTopicAdd(req: 新增试题请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/topic/add`, req)
 }
-export function zxxTopicCheck(req: 审核试题请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/topic/check`, req) as any
+export function zxxTopicCheck(req: 审核试题请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/topic/check`, req)
 }
-export function zxxTopicDelete(req: 删除试题请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/topic/delete`, req) as any
+export function zxxTopicDelete(req: 删除试题请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/topic/delete`, req)
 }
-export function zxxTopicGet(id: number): ApiResponse<试题返回对象> {
-  return axios.get(`/ess-tiku-api/zxx/topic/get?id=${id}`) as any
+export function zxxTopicGet(id: number): Promise<ApiResponse<试题返回对象>> {
+  return axios.get<any, ApiResponse<试题返回对象>>(
+    `/ess-tiku-api/zxx/topic/get?id=${id}`
+  )
 }
 export function zxxTopicList(
   req: 试题列表请求对象
-): ApiPageResponse<试题返回对象> {
-  return axios.post(`/ess-tiku-api/zxx/topic/list`, req) as any
+): Promise<ApiPageResponse<试题返回对象>> {
+  return axios.post<any, ApiPageResponse<试题返回对象>>(
+    `/ess-tiku-api/zxx/topic/list`,
+    req
+  )
 }
-export function zxxTopicMove(req: 移动试题请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/topic/move`, req) as any
+export function zxxTopicMove(req: 移动试题请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/topic/move`, req)
 }
-export function zxxTopicUpdate(req: 更新试题请求对象): ApiResponse {
-  return axios.post(`/ess-tiku-api/zxx/topic/update`, req) as any
+export function zxxTopicUpdate(req: 更新试题请求对象): Promise<ApiResponse> {
+  return axios.post<any, ApiResponse>(`/ess-tiku-api/zxx/topic/update`, req)
 }
 export interface ApiResponse<T = any> {
   sid: string
