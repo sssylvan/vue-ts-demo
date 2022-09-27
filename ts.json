@@ -2785,6 +2785,69 @@
         "x-order": "1"
       }
     },
+    "/front/history/validate-history-type": {
+      "get": {
+        "tags": ["【用户端使用】用户做题记录相关接口"],
+        "summary": "验证做题记录类型",
+        "description": "验证做题记录类型",
+        "operationId": "validateHistoryTypeUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "historyTypeId",
+            "in": "query",
+            "description": "做题记录类型id",
+            "required": false,
+            "type": "integer",
+            "format": "int32",
+            "allowEmptyValue": false
+          },
+          {
+            "name": "sid",
+            "in": "header",
+            "description": "系统ID(请求唯一标识)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sign",
+            "in": "header",
+            "description": "签名",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token授权码",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "unioncode",
+            "in": "header",
+            "description": "联盟Code:(域名、小程序id、联盟unionId任选其一),仅联盟项目使用",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "响应数据«string»",
+              "$ref": "#/definitions/响应数据«string»"
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false,
+        "x-author": "周光照",
+        "x-order": "1"
+      }
+    },
     "/front/note/save": {
       "post": {
         "tags": ["【用户端使用】用户笔记相关接口"],
@@ -5188,6 +5251,69 @@
         "deprecated": false,
         "x-author": "zhaohu",
         "x-order": "8"
+      }
+    },
+    "/paper/select-list": {
+      "get": {
+        "tags": ["试卷业务相关接口"],
+        "summary": "根据试卷Ids获取试卷列表",
+        "operationId": "selectListUsingGET",
+        "produces": ["*/*"],
+        "parameters": [
+          {
+            "name": "paperIds",
+            "in": "query",
+            "description": "试卷id集合",
+            "required": true,
+            "type": "array",
+            "items": { "type": "integer", "format": "int64" },
+            "collectionFormat": "multi",
+            "allowEmptyValue": false
+          },
+          {
+            "name": "sid",
+            "in": "header",
+            "description": "系统ID(请求唯一标识)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "sign",
+            "in": "header",
+            "description": "签名",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token授权码",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "unioncode",
+            "in": "header",
+            "description": "联盟Code:(域名、小程序id、联盟unionId任选其一),仅联盟项目使用",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "originalRef": "响应数据«List«PaperInfoApiRsp»»",
+              "$ref": "#/definitions/响应数据«List«PaperInfoApiRsp»»"
+            }
+          },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not Found" }
+        },
+        "deprecated": false,
+        "x-author": "liujianping",
+        "x-order": "20"
       }
     },
     "/product/delete": {
@@ -13832,6 +13958,11 @@
           "description": "试卷id"
         },
         "paperName": { "type": "string", "description": "试卷名称" },
+        "paperType": {
+          "type": "integer",
+          "format": "int32",
+          "description": "试卷类型"
+        },
         "questionId": {
           "type": "integer",
           "format": "int64",

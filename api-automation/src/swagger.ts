@@ -95,7 +95,7 @@ export interface Parameter {
   in?: string
   description?: string
   required?: boolean
-  type?: Type
+  type?: string
   default?: string
   schema?: SchemaClass
 }

@@ -1,6 +1,7 @@
 import {
   Definition,
   GetResponses,
+  Parameter,
   PurpleResponses,
   Schema,
   Swagger,
@@ -19,7 +20,9 @@ rp('http://192.168.0.181:23380/ess-tiku-api/v2/api-docs').then(
         path: data.basePath + path,
         name: getApiName(path),
         method,
-        response: getResponseType(apiContent.responses),
+        responseType: getResponseType(apiContent.responses),
+        queryParams: getQueryParams(apiContent.parameters),
+        body: getBodyParams(apiContent.parameters),
       }
       return api
     })
@@ -48,8 +51,12 @@ rp('http://192.168.0.181:23380/ess-tiku-api/v2/api-docs').then(
 )
 
 function getApiContent(api: API) {
-  return `export function ${api.name}():${api.response} {
-   return axios.get('${api.path}') as  any
+  return `export function ${api.name}( ${getQueryParamsCode(
+    api.queryParams
+  )} ${getBodyParamsCode(api.body)}):${api.responseType} {
+   return axios.${api.method}(\`${api.path}${getQueryStringCode(
+    api.queryParams
+  )}\`${api.body ? ',' + api.body.map((b) => b.name) : ''}) as  any
   }`
 }
 
@@ -114,10 +121,10 @@ interface API {
   path: string
   name: string
   method: 'get' | 'post'
-  queryParams?: any[]
-  body?: any
+  queryParams?: Parameter[]
+  body?: Parameter[]
   headers?: any[]
-  response: any
+  responseType: any
 }
 
 function getBaseModel() {
@@ -156,4 +163,55 @@ function getPropertyType(schema: Schema) {
     default:
       return type || (schema as any).originalRef
   }
+}
+
+// 获取所有的query里面的参数名称
+function getQueryParams(parameters: Parameter[]): Parameter[] {
+  return parameters.filter((param) => param.in === 'query')
+}
+
+function getBodyParams(parameters: Parameter[]): Parameter[] {
+  return parameters.filter((param) => param.in === 'body')
+}
+
+// 用于形参
+function getQueryParamsCode(queryParams: Parameter[]): string[] {
+  return queryParams.map((query) => `${query.name}: ${transferType(query)}`)
+}
+
+function getBodyParamsCode(bodyParams: Parameter[]): string[] {
+  return bodyParams.map((query) => {
+    const { name, schema } = query
+    let ref = schema.originalRef
+    if (!ref) {
+      ref = transferType(schema as any)
+    }
+    return `${name}: ${ref}`
+  })
+}
+
+function transferType(parameter: Parameter) {
+  const { type } = parameter
+  switch (type) {
+    case 'integer':
+      return 'number'
+    case 'array':
+      return `${transferType((parameter as any).items)}[]`
+    case 'file':
+      return 'File'
+    default:
+      return type
+  }
+}
+
+function getQueryStringCode(queryParams: Parameter[]): string {
+  let query = ''
+  if (queryParams.length > 0) {
+    query =
+      '?' +
+      queryParams
+        .map((param) => param.name + '=' + '${' + param.name + '}')
+        .join('&')
+  }
+  return query
 }
