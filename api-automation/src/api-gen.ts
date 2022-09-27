@@ -36,13 +36,20 @@ rp('http://192.168.0.181:23380/ess-tiku-api/v2/api-docs').then(
       )
       .join('\n')
 
-    fs.outputFile('./api.ts', getBaseModel() + modelsContent)
+    fs.outputFile(
+      './api.ts',
+      "import axios from 'axios' \n" +
+        apisContent +
+        getBaseModel() +
+        modelsContent
+    )
+    // fs.outputFile('./api.ts', getBaseModel() + modelsContent)
   }
 )
 
 function getApiContent(api: API) {
   return `export function ${api.name}():${api.response} {
-    axios.get('${api.path}')
+   return axios.get('${api.path}') as  any
   }`
 }
 
@@ -86,7 +93,14 @@ function getResponseType(responses: GetResponses | PurpleResponses) {
   const schema = responses[200].schema
   const type = (schema as Schema).type
   if (!type) {
-    return schema['originalRef']
+    const ref = schema['originalRef']
+      .replace(/«/g, '<')
+      .replace(/»/g, '>')
+      .replace('响应数据', 'ApiResponse')
+      .replace(/<List</g, '<Array<')
+      .replace(/<long>/g, '<number>')
+      .replace(/<int>/g, '<number>')
+    return ref
   } else {
     if (type === 'array') {
       //TODO
@@ -108,7 +122,7 @@ interface API {
 
 function getBaseModel() {
   return `
-export interface ApiResponse<T> {
+export interface ApiResponse<T = any> {
     sid: string
     time: string
     code: number

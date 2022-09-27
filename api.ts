@@ -1,4 +1,585 @@
-export interface ApiResponse<T> {
+import axios from 'axios'
+export function baseTopicTypeAdd(): ApiResponse {
+  return axios.get('/ess-tiku-api/base/topic-type/add') as any
+}
+export function baseTopicTypeList(): ApiResponse<Array<题型列表返回对象>> {
+  return axios.get('/ess-tiku-api/base/topic-type/list') as any
+}
+export function baseTopicTypeUpdate(): ApiResponse {
+  return axios.get('/ess-tiku-api/base/topic-type/update') as any
+}
+export function bookDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/book/delete') as any
+}
+export function bookPage(): ApiPageResponse<TikuBookInfoPageRsp> {
+  return axios.get('/ess-tiku-api/book/page') as any
+}
+export function bookPageQuestion(): ApiPageResponse<TikuBookInfoRsp> {
+  return axios.get('/ess-tiku-api/book/page-question') as any
+}
+export function bookSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/book/save') as any
+}
+export function bookScanDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/book/scan/delete') as any
+}
+export function bookScanSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/book/scan/save') as any
+}
+export function chapterDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/chapter/delete') as any
+}
+export function chapterFullTree(): ApiResponse<Array<ChapterInfoRsp>> {
+  return axios.get('/ess-tiku-api/chapter/full-tree') as any
+}
+export function chapterKnowledgeDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/chapter/knowledge/delete') as any
+}
+export function chapterKnowledgeSave(): ApiResponse<ChapterKnowledgeBaseRsp> {
+  return axios.get('/ess-tiku-api/chapter/knowledge/save') as any
+}
+export function chapterListQuestion(): ApiResponse<Array<ChapterQuestionRsp>> {
+  return axios.get('/ess-tiku-api/chapter/list-question') as any
+}
+export function chapterListIds(): ApiResponse<Array<ChapterInfoRsp>> {
+  return axios.get('/ess-tiku-api/chapter/list/ids') as any
+}
+export function chapterResetsort(): ApiResponse {
+  return axios.get('/ess-tiku-api/chapter/resetsort') as any
+}
+export function chapterSave(): ApiResponse<ChapterInfoBaseRsp> {
+  return axios.get('/ess-tiku-api/chapter/save') as any
+}
+export function chapterSyncBackendChapterQuestion(): ApiResponse {
+  return axios.get('/ess-tiku-api/chapter/sync-backend-chapter-question') as any
+}
+export function chapterTree(): ApiResponse<Array<ChapterInfoRsp>> {
+  return axios.get('/ess-tiku-api/chapter/tree') as any
+}
+export function chapterVersionDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/chapter/version/delete') as any
+}
+export function chapterVersionList(): ApiResponse<Array<ChapterVersionRsp>> {
+  return axios.get('/ess-tiku-api/chapter/version/list') as any
+}
+export function chapterVersionSave(): ApiResponse<ChapterVersionRsp> {
+  return axios.get('/ess-tiku-api/chapter/version/save') as any
+}
+export function deleteData(): ApiResponse {
+  return axios.get('/ess-tiku-api/deleteData') as any
+}
+export function examHighScoreImportExcel(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/examHighScore/importExcel') as any
+}
+export function examHighScorePublishKeywords(): ApiResponse<阿里云上传响应对象> {
+  return axios.get('/ess-tiku-api/examHighScore/publishKeywords') as any
+}
+export function examdaNewsEsDoSearch(): ApiPageResponse<
+  Array<ExamdaNewsEsRsp>
+> {
+  return axios.get('/ess-tiku-api/examdaNewsEs/do/search') as any
+}
+export function examdaNewsEsSearch(): ApiPageResponse<Array<ExamdaNewsEsRsp>> {
+  return axios.get('/ess-tiku-api/examdaNewsEs/search') as any
+}
+export function frontChapterDoList(): ApiResponse<Array<ChapterInfoFrontRsp>> {
+  return axios.get('/ess-tiku-api/front/chapter/do/list') as any
+}
+export function frontDailyDate(): ApiResponse<Array<DailyExerciseDateRsp>> {
+  return axios.get('/ess-tiku-api/front/daily/date') as any
+}
+export function frontDailyDetailed(): ApiResponse<DailyExerciseFrontRsp> {
+  return axios.get('/ess-tiku-api/front/daily/detailed') as any
+}
+export function frontExtractCard(): ApiResponse<Array<ExtractQuestionCardRsp>> {
+  return axios.get('/ess-tiku-api/front/extract/card') as any
+}
+export function frontExtractDoPage(): ApiResponse<ExtractQuestionPageRsp> {
+  return axios.get('/ess-tiku-api/front/extract/do/page') as any
+}
+export function frontExtractDoQuestions(): ApiResponse<string> {
+  return axios.get('/ess-tiku-api/front/extract/do/questions') as any
+}
+export function frontExtractPage(): ApiResponse<ExtractQuestionPageRsp> {
+  return axios.get('/ess-tiku-api/front/extract/page') as any
+}
+export function frontExtractQuestions(): ApiResponse<string> {
+  return axios.get('/ess-tiku-api/front/extract/questions') as any
+}
+export function frontExtractRedo(): ApiResponse<string> {
+  return axios.get('/ess-tiku-api/front/extract/redo') as any
+}
+export function frontExtractSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/front/extract/save') as any
+}
+export function frontExtractSubmit(): ApiResponse {
+  return axios.get('/ess-tiku-api/front/extract/submit') as any
+}
+export function frontFavChapterTree(): ApiResponse<
+  Array<UserWrongFavChapterRsp>
+> {
+  return axios.get('/ess-tiku-api/front/fav/chapter-tree') as any
+}
+export function frontFavInsert(): ApiResponse {
+  return axios.get('/ess-tiku-api/front/fav/insert') as any
+}
+export function frontFavQuestionType(): ApiResponse<
+  Array<UserWrongFavQuestionTypeRsp>
+> {
+  return axios.get('/ess-tiku-api/front/fav/question-type') as any
+}
+export function frontFavRemove(): ApiResponse {
+  return axios.get('/ess-tiku-api/front/fav/remove') as any
+}
+export function frontHistoryPage(): ApiPageResponse<HistoryPageRsp> {
+  return axios.get('/ess-tiku-api/front/history/page') as any
+}
+export function frontHistoryValidateHistoryType(): ApiResponse<string> {
+  return axios.get('/ess-tiku-api/front/history/validate-history-type') as any
+}
+export function frontNoteSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/front/note/save') as any
+}
+export function frontPaperDetailed(): ApiResponse<PaperFrontDetailedRsp> {
+  return axios.get('/ess-tiku-api/front/paper/detailed') as any
+}
+export function frontPaperPage(): ApiPageResponse<PaperFrontApiRsp> {
+  return axios.get('/ess-tiku-api/front/paper/page') as any
+}
+export function frontProductBuy(): ApiResponse<TikuProductBuyRsp> {
+  return axios.get('/ess-tiku-api/front/product/buy') as any
+}
+export function frontWrongChapterTree(): ApiResponse<
+  Array<UserWrongFavChapterRsp>
+> {
+  return axios.get('/ess-tiku-api/front/wrong/chapter-tree') as any
+}
+export function frontWrongQuestionType(): ApiResponse<
+  Array<UserWrongFavQuestionTypeRsp>
+> {
+  return axios.get('/ess-tiku-api/front/wrong/question-type') as any
+}
+export function frontWrongRemove(): ApiResponse<UserWrongStatsRsp> {
+  return axios.get('/ess-tiku-api/front/wrong/remove') as any
+}
+export function frontWrongStats(): ApiResponse<UserWrongStatsRsp> {
+  return axios.get('/ess-tiku-api/front/wrong/stats') as any
+}
+export function knowledgeListId(): ApiResponse<Array<ChapterKnowledgeInfoRsp>> {
+  return axios.get('/ess-tiku-api/knowledge/list-id') as any
+}
+export function knowledgeListTreeSubject(): ApiResponse<Array<ChapterInfoRsp>> {
+  return axios.get('/ess-tiku-api/knowledge/list-tree-subject') as any
+}
+export function knowledgeParentIds(): ApiResponse<Array<ChapterInfoRsp>> {
+  return axios.get('/ess-tiku-api/knowledge/parent-ids') as any
+}
+export function paperAuditPaper(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/audit-paper') as any
+}
+export function paperBatchBindChapter(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/batch-bind-chapter') as any
+}
+export function paperBatchBindProduct(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/batch-bind-product') as any
+}
+export function paperBatchUpdateSource(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/batch-update-source') as any
+}
+export function paperCancelBindChapter(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/cancel-bind-chapter') as any
+}
+export function paperCancelBindProduct(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/cancel-bind-product') as any
+}
+export function paperCloseProof(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/close-proof') as any
+}
+export function paperCopyPaste(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/copy-paste') as any
+}
+export function paperDeleteRevoke(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/delete-revoke') as any
+}
+export function paperDetailed(): ApiResponse<PaperDetailedRsp> {
+  return axios.get('/ess-tiku-api/paper/detailed') as any
+}
+export function paperDoNetUpdatePdf(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/do/net-update-pdf') as any
+}
+export function paperExamDuration(): ApiResponse<number> {
+  return axios.get('/ess-tiku-api/paper/exam-duration') as any
+}
+export function paperGroupVolumeSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/group-volume/save') as any
+}
+export function paperGroupVolumeView(): ApiResponse<PaperGroupVolumeRsp> {
+  return axios.get('/ess-tiku-api/paper/group-volume/view') as any
+}
+export function paperList(): ApiResponse<Array<PaperInfoApiRsp>> {
+  return axios.get('/ess-tiku-api/paper/list') as any
+}
+export function paperListMini(): ApiResponse<Array<PaperInfoMiniApiRsp>> {
+  return axios.get('/ess-tiku-api/paper/list-mini') as any
+}
+export function paperListPaperYears(): ApiResponse<Array<number>> {
+  return axios.get('/ess-tiku-api/paper/list-paper-years') as any
+}
+export function paperPage(): ApiPageResponse<PaperInfoRsp> {
+  return axios.get('/ess-tiku-api/paper/page') as any
+}
+export function paperPdfPush(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/pdf/push') as any
+}
+export function paperQuestionType(): ApiResponse<
+  Array<TikuSubjectQuestionTypePaperRsp>
+> {
+  return axios.get('/ess-tiku-api/paper/question-type') as any
+}
+export function paperResetSort(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/reset-sort') as any
+}
+export function paperRuleDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/rule/delete') as any
+}
+export function paperRuleSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/rule/save') as any
+}
+export function paperRules(): ApiResponse<Array<PaperRuleRsp>> {
+  return axios.get('/ess-tiku-api/paper/rules') as any
+}
+export function paperSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/save') as any
+}
+export function paperSaveExamDuration(): ApiResponse {
+  return axios.get('/ess-tiku-api/paper/save-exam-duration') as any
+}
+export function paperSelectList(): ApiResponse<Array<PaperInfoApiRsp>> {
+  return axios.get('/ess-tiku-api/paper/select-list') as any
+}
+export function productDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/product/delete') as any
+}
+export function productDetailed(): ApiResponse<TikuProductInfoDetailedRsp> {
+  return axios.get('/ess-tiku-api/product/detailed') as any
+}
+export function productGetIdBySubjectId(): ApiResponse<number> {
+  return axios.get('/ess-tiku-api/product/get-id-by-subject-id') as any
+}
+export function productListMini(): ApiResponse<Array<TikuProductMiniInfoRsp>> {
+  return axios.get('/ess-tiku-api/product/list-mini') as any
+}
+export function productListSingle(): ApiResponse<
+  Array<TikuProductInfoSingleRsp>
+> {
+  return axios.get('/ess-tiku-api/product/list-single') as any
+}
+export function productPage(): ApiPageResponse<TikuProductInfoRsp> {
+  return axios.get('/ess-tiku-api/product/page') as any
+}
+export function productRackUpAndDown(): ApiResponse {
+  return axios.get('/ess-tiku-api/product/rack-up-and-down') as any
+}
+export function productSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/product/save') as any
+}
+export function productSysData(): ApiResponse {
+  return axios.get('/ess-tiku-api/product/sys-data') as any
+}
+export function questionExamTimeConfigDel(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-exam-time-config/del') as any
+}
+export function questionExamTimeConfigList(): ApiResponse<
+  Array<QuestionExamTimeConfigRsp>
+> {
+  return axios.get('/ess-tiku-api/question-exam-time-config/list') as any
+}
+export function questionExamTimeConfigSave(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-exam-time-config/save') as any
+}
+export function questionLevyDelete(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-levy/delete') as any
+}
+export function questionLevyGet(): ApiResponse<QuestionLevyRsp> {
+  return axios.get('/ess-tiku-api/question-levy/get') as any
+}
+export function questionLevyGetSubject(): ApiResponse<Map<string, object>> {
+  return axios.get('/ess-tiku-api/question-levy/get-subject') as any
+}
+export function questionLevyList(): ApiResponse<Array<QuestionLevyPageRsp>> {
+  return axios.get('/ess-tiku-api/question-levy/list') as any
+}
+export function questionLevyListFront(): ApiResponse<
+  Array<QuestionLevyListRsp>
+> {
+  return axios.get('/ess-tiku-api/question-levy/list-front') as any
+}
+export function questionLevyPage(): ApiPageResponse<QuestionLevyPageRsp> {
+  return axios.get('/ess-tiku-api/question-levy/page') as any
+}
+export function questionLevySave(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-levy/save') as any
+}
+export function questionRuleConfigDelRefuseMsg(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-rule-config/del-refuse-msg') as any
+}
+export function questionRuleConfigGet(): ApiResponse<QuestionRuleConfigRsp> {
+  return axios.get('/ess-tiku-api/question-rule-config/get') as any
+}
+export function questionRuleConfigGetRefuseMsg(): ApiResponse<Array<string>> {
+  return axios.get('/ess-tiku-api/question-rule-config/get-refuse-msg') as any
+}
+export function questionRuleConfigSave(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-rule-config/save') as any
+}
+export function questionRuleConfigSaveRefuseMsg(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-rule-config/save-refuse-msg') as any
+}
+export function questionTypeList(): ApiResponse<TikuSubjectQuestionTypeListRsp> {
+  return axios.get('/ess-tiku-api/question-type/list') as any
+}
+export function questionTypeSave(): ApiResponse<TikuSubjectQuestionTypeListRsp> {
+  return axios.get('/ess-tiku-api/question-type/save') as any
+}
+export function questionUploadRecordCount(): ApiResponse<QuestionUploadRecordCountRsp> {
+  return axios.get('/ess-tiku-api/question-upload-record/count') as any
+}
+export function questionUploadRecordDeleted(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-upload-record/deleted') as any
+}
+export function questionUploadRecordExist(): ApiResponse<boolean> {
+  return axios.get('/ess-tiku-api/question-upload-record/exist') as any
+}
+export function questionUploadRecordGet(): ApiResponse<QuestionUploadRecordSimpleRsp> {
+  return axios.get('/ess-tiku-api/question-upload-record/get') as any
+}
+export function questionUploadRecordListMy(): ApiResponse<
+  Array<QuestionUploadRecordMyRsp>
+> {
+  return axios.get('/ess-tiku-api/question-upload-record/list-my') as any
+}
+export function questionUploadRecordPage(): ApiPageResponse<QuestionUploadRecordPageRsp> {
+  return axios.get('/ess-tiku-api/question-upload-record/page') as any
+}
+export function questionUploadRecordSave(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-upload-record/save') as any
+}
+export function questionUploadRecordSavePay(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-upload-record/save-pay') as any
+}
+export function questionUploadRecordSaveRecord(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-upload-record/save-record') as any
+}
+export function questionUploadRecordSubscribe(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/question-upload-record/subscribe') as any
+}
+export function questionUploadRecordTopList(): ApiResponse<
+  Array<SiteInfoMinRsp>
+> {
+  return axios.get('/ess-tiku-api/question-upload-record/top-list') as any
+}
+export function questionBindChapter(): ApiResponse<QuestionChapterRsp> {
+  return axios.get('/ess-tiku-api/question/bind-chapter') as any
+}
+export function questionCancelBindChapter(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/cancel-bind-chapter') as any
+}
+export function questionDeleteRevoke(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/delete-revoke') as any
+}
+export function questionDetailed(): ApiResponse<QuestionDetailedRsp> {
+  return axios.get('/ess-tiku-api/question/detailed') as any
+}
+export function questionDoNetDeleteRel(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/do/net-delete-rel') as any
+}
+export function questionDoNetProofLogSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/do/net-proof-log-save') as any
+}
+export function questionDoNetUpdateContent(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/do/net-update-content') as any
+}
+export function questionDoNetUpdateRel(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/do/net-update-rel') as any
+}
+export function questionGetMiniQuestionRel(): ApiResponse<GetQuestionInfoMiniApiRsp> {
+  return axios.get('/ess-tiku-api/question/get-mini-question-rel') as any
+}
+export function questionListMiniQuestionProofLog(): ApiResponse<
+  Array<ListQuestionProofLogMiniApiRsp>
+> {
+  return axios.get('/ess-tiku-api/question/list-mini-question-proof-log') as any
+}
+export function questionPage(): ApiPageResponse<QuestionInfoRsp> {
+  return axios.get('/ess-tiku-api/question/page') as any
+}
+export function questionPreviewProofSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/preview-proof-save') as any
+}
+export function questionPreviewQuestion(): ApiResponse<QuestionPreviewRsp> {
+  return axios.get('/ess-tiku-api/question/preview-question') as any
+}
+export function questionPreviewRule(): ApiResponse<QuestionPreviewStatsRsp> {
+  return axios.get('/ess-tiku-api/question/preview-rule') as any
+}
+export function questionRepeat(): ApiPageResponse<QuestionInfoRepeatRsp> {
+  return axios.get('/ess-tiku-api/question/repeat') as any
+}
+export function questionSave(): ApiResponse<number> {
+  return axios.get('/ess-tiku-api/question/save') as any
+}
+export function questionSaveBatch(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/save-batch') as any
+}
+export function questionStats(): ApiResponse<QuestionStatsRsp> {
+  return axios.get('/ess-tiku-api/question/stats') as any
+}
+export function questionSysQuestion(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/sys-question') as any
+}
+export function questionUpdateQuestion(): ApiResponse {
+  return axios.get('/ess-tiku-api/question/update-question') as any
+}
+export function reportInit(): ApiResponse<HistoryReportRsp> {
+  return axios.get('/ess-tiku-api/report/init') as any
+}
+export function saveData(): ApiResponse<number> {
+  return axios.get('/ess-tiku-api/saveData') as any
+}
+export function searchSubjectRecordDoGetDayPictureCount(): ApiResponse<PictureUserRsp> {
+  return axios.get(
+    '/ess-tiku-api/searchSubjectRecord/do/getDayPictureCount'
+  ) as any
+}
+export function searchSubjectRecordExportData(): ApiResponse<阿里云上传响应对象> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/exportData') as any
+}
+export function searchSubjectRecordGetYearReport(): ApiResponse<SearchReportYearRsp> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/get-year-report') as any
+}
+export function searchSubjectRecordGetUserPictureCount(): ApiResponse<PictureUserRsp> {
+  return axios.get(
+    '/ess-tiku-api/searchSubjectRecord/getUserPictureCount'
+  ) as any
+}
+export function searchSubjectRecordMoveDomain(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/moveDomain') as any
+}
+export function searchSubjectRecordSearchKeywordQuestions(): ApiPageResponse<
+  Array<ExamdaNewsEsRsp>
+> {
+  return axios.get(
+    '/ess-tiku-api/searchSubjectRecord/search/keywordQuestions'
+  ) as any
+}
+export function searchSubjectRecordSearchQuestions(): ApiPageResponse<
+  Array<ExamdaNewsEsRsp>
+> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/searchQuestions') as any
+}
+export function searchSubjectRecordSelectGet(): ApiResponse<
+  Array<ExamdaNewsEsRsp>
+> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/select/get') as any
+}
+export function searchSubjectRecordSelectKeyword(): ApiResponse<
+  Array<SearchRecordRsp>
+> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/select/keyword') as any
+}
+export function searchSubjectRecordSelectRecord(): ApiResponse<
+  Array<SearchRecordRsp>
+> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/select/record') as any
+}
+export function searchSubjectRecordSelectDataReport(): ApiResponse<
+  Array<SearchReportRsp>
+> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/selectDataReport') as any
+}
+export function searchSubjectRecordSelectList(): ApiPageResponse<SearchSubjectRecordRsp> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/selectList') as any
+}
+export function searchSubjectRecordSelectNumReport(): ApiResponse<SearchReportDateRsp> {
+  return axios.get('/ess-tiku-api/searchSubjectRecord/selectNumReport') as any
+}
+export function searchTimeConfigGet(): ApiResponse<SearchTimeConfigRsp> {
+  return axios.get('/ess-tiku-api/searchTimeConfig/get') as any
+}
+export function searchTimeConfigUpdate(): ApiResponse<object> {
+  return axios.get('/ess-tiku-api/searchTimeConfig/update') as any
+}
+export function selectData(): ApiPageResponse<ExamHighScoreRsp> {
+  return axios.get('/ess-tiku-api/selectData') as any
+}
+export function selectDataById(): ApiResponse<ExamHighScoreRsp> {
+  return axios.get('/ess-tiku-api/selectDataById') as any
+}
+export function siteinfoTree(): ApiResponse<Array<SiteInfoRsp>> {
+  return axios.get('/ess-tiku-api/siteinfo/tree') as any
+}
+export function spotTimeModel(): ApiResponse<TikuSubjectSpotTimeRsp> {
+  return axios.get('/ess-tiku-api/spot-time/model') as any
+}
+export function spotTimeSave(): ApiResponse {
+  return axios.get('/ess-tiku-api/spot-time/save') as any
+}
+export function tikuBaseTreeSiteinfo(): ApiResponse<Array<SiteInfoBaseRsp>> {
+  return axios.get('/ess-tiku-api/tiku-base/tree-siteinfo') as any
+}
+export function zxxChapterAdd(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/chapter/add') as any
+}
+export function zxxChapterDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/chapter/delete') as any
+}
+export function zxxChapterGet(): ApiResponse<章节列表查询响应对象> {
+  return axios.get('/ess-tiku-api/zxx/chapter/get') as any
+}
+export function zxxChapterMove(): ApiResponse<Array<章节列表查询响应对象>> {
+  return axios.get('/ess-tiku-api/zxx/chapter/move') as any
+}
+export function zxxChapterTree(): ApiResponse<Array<章节列表查询响应对象>> {
+  return axios.get('/ess-tiku-api/zxx/chapter/tree') as any
+}
+export function zxxChapterUpdate(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/chapter/update') as any
+}
+export function zxxExerciseGetTopics(): ApiResponse<
+  Array<做题获取试题返回对象>
+> {
+  return axios.get('/ess-tiku-api/zxx/exercise/get-topics') as any
+}
+export function zxxExerciseShowAnalysis(): ApiResponse<
+  Array<查看答案解析返回对象>
+> {
+  return axios.get('/ess-tiku-api/zxx/exercise/show-analysis') as any
+}
+export function zxxExerciseSubmitAnswer(): ApiResponse<提交答案返回对象> {
+  return axios.get('/ess-tiku-api/zxx/exercise/submit-answer') as any
+}
+export function zxxTopicAdd(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/topic/add') as any
+}
+export function zxxTopicCheck(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/topic/check') as any
+}
+export function zxxTopicDelete(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/topic/delete') as any
+}
+export function zxxTopicGet(): ApiResponse<试题返回对象> {
+  return axios.get('/ess-tiku-api/zxx/topic/get') as any
+}
+export function zxxTopicList(): ApiPageResponse<试题返回对象> {
+  return axios.get('/ess-tiku-api/zxx/topic/list') as any
+}
+export function zxxTopicMove(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/topic/move') as any
+}
+export function zxxTopicUpdate(): ApiResponse {
+  return axios.get('/ess-tiku-api/zxx/topic/update') as any
+}
+export interface ApiResponse<T = any> {
   sid: string
   time: string
   code: number
